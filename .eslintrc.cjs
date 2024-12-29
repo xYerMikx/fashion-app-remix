@@ -15,7 +15,7 @@ module.exports = {
   },
   ignorePatterns: ['!**/.server', '!**/.client'],
 
-  extends: ['eslint:recommended'],
+  extends: ['eslint:recommended', 'plugin:tailwindcss/recommended'],
 
   overrides: [
     {
