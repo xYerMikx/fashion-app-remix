@@ -42,9 +42,6 @@
     "vite": "^5.1.0",
     "vite-tsconfig-paths": "^4.2.1"
   },
-  "engines": {
-    "node": ">=20.0.0"
-  },
   "lint-staged": {
     "app/**/*.{js,jsx,ts,tsx,json,css}": [
       "npx prettier . --write",
