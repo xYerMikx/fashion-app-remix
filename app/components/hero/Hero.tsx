@@ -2,7 +2,7 @@ import { heroProducts } from 'constants/products'
 import { useModal } from 'hooks/useModal'
 import { Banner } from '~/components/banner/Banner'
 import { Header } from '~/components/header/Header'
-import { ProductCard } from '~/components/product-card/ProductCard'
+import { ProductCardShort } from '~/components/product-card/ProductCardShort'
 import { Wrapper } from '~/components/wrapper/Wrapper'
 import cn from 'classnames'
 
@@ -10,7 +10,7 @@ export const Hero = () => {
   const { isOpen, handleClose } = useModal(true)
 
   return (
-    <section className="bg-[url('/app/assets/images/hero.jpeg')] bg-cover bg-center bg-no-repeat">
+    <section className="bg-[url('/app/assets/images/hero.jpeg')] bg-cover bg-center bg-no-repeat pb-48">
       {isOpen && <Banner onClose={handleClose} />}
       <Wrapper>
         <Header />
@@ -27,7 +27,7 @@ export const Hero = () => {
             const lastItem = heroProducts[heroProducts.length - 1]
             return (
               <li key={id} className={cn(id !== lastItem.id && 'mb-4')}>
-                <ProductCard
+                <ProductCardShort
                   currency={currency}
                   image={image}
                   price={price}
