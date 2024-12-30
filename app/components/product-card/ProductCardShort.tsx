@@ -1,4 +1,5 @@
 import cn from 'classnames'
+
 interface ProductCardProps {
   image: string
   title: string
@@ -7,7 +8,7 @@ interface ProductCardProps {
   reversed?: boolean
 }
 
-export const ProductCard = ({
+export const ProductCardShort = ({
   currency = '$',
   image,
   price,
