@@ -16,13 +16,12 @@ export const Video = () => {
   }, [])
 
   return (
-    <div className="group relative mt-16">
+    <div className="group relative my-16">
       <iframe
         ref={iframeRef}
         width="640"
-        height="390"
+        height="640"
         src={`https://www.youtube.com/embed/r4B69HAOXnA?enablejsapi=1&autohide=1&modestbranding=1`}
-        frameBorder="0"
         allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
         allowFullScreen
         title="YouTube video player"
