@@ -1,7 +1,5 @@
-import type { LoaderFunction, MetaFunction } from '@remix-run/node'
+import type { MetaFunction } from '@remix-run/node'
 import { useLoaderData } from '@remix-run/react'
-import { menProducts, womanProducts } from 'constants/products'
-import { Review } from 'entities/review'
 import { FeaturesSection } from '~/components/features-section/FeaturesSection'
 import { Footer } from '~/components/footer/Footer'
 import { Hero } from '~/components/hero/Hero'
@@ -10,8 +8,9 @@ import { ProductsCarousel } from '~/components/products-carousel/ProductsCarouse
 import { Reviews } from '~/components/reviews/Reviews'
 import { Video } from '~/components/video/Video'
 import { Wrapper } from '~/components/wrapper/Wrapper'
-import { ReviewsService } from '~/services/reviews'
+import { ReviewsService } from 'services/reviews'
 import { Gap } from '~/ui/gap/Gap'
+import { ProductsService } from 'services/products'
 
 export const meta: MetaFunction = () => {
   return [
@@ -23,14 +22,18 @@ export const meta: MetaFunction = () => {
   ]
 }
 
-export const loader: LoaderFunction = async () => {
-  const reviews = await ReviewsService.getReviews()
+export const loader = async () => {
+  const [reviews, menProducts, womanProducts] = await Promise.all([
+    ReviewsService.getReviews(),
+    ProductsService.getFilteredProducts('sex', 'men'),
+    ProductsService.getFilteredProducts('sex', 'woman'),
+  ])
 
-  return reviews
+  return { reviews, menProducts, womanProducts }
 }
 
 export default function Index() {
-  const reviews = useLoaderData<Review[]>()
+  const { reviews, womanProducts, menProducts } = useLoaderData<typeof loader>()
 
   return (
     <div className="font-lato">
