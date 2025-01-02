@@ -10,7 +10,7 @@ interface ReviewProps {
 export const Review = ({ date, name, rating, text }: ReviewProps) => {
   return (
     <div className="grow-1 flex shrink-0 basis-calc-full sm:basis-calc-1/2 lg:basis-calc-1/3">
-      <div className="flex flex-col rounded-lg bg-white p-4 shadow-md">
+      <div className="flex w-full flex-col rounded-lg bg-white p-4 shadow-md">
         <div className="mb-4 flex items-center gap-2">
           <div className="size-9 rounded-[50%] bg-primary" />
           <div>
