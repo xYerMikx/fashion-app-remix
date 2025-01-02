@@ -7,6 +7,7 @@ export type Product = {
   price: number
   currency: string
   id: string
+  sex: 'woman' | 'men'
 }
 
 export type ProductDto = Pick<

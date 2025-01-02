@@ -1,9 +1,11 @@
+import { useNavigate } from '@remix-run/react'
 import { Product } from 'entities/product'
 import star from '~/assets/icons/star.svg'
 
-interface ProductCardProps extends Omit<Product, 'id'> {}
+interface ProductCardProps extends Omit<Product, 'sex'> {}
 
 export const ProductCardFull = ({
+  id,
   category,
   currency,
   description,
@@ -12,9 +14,19 @@ export const ProductCardFull = ({
   rating,
   title,
 }: ProductCardProps) => {
+  const navigate = useNavigate()
+
+  const handleNavigateToProduct = () => {
+    navigate(`/products/${id}`)
+  }
+
   return (
-    <div className="relative flex h-full flex-col overflow-hidden rounded-lg bg-white shadow-lg">
-      <div className="relative h-72">
+    // eslint-disable-next-line
+    <div
+      className="relative flex h-full flex-col overflow-hidden rounded-lg bg-white shadow-lg transition hover:cursor-pointer hover:shadow-2xl"
+      onClick={handleNavigateToProduct}
+    >
+      <div className="relative">
         <img src={image} alt={title} className="size-full object-cover" />
         <div className="absolute right-2 top-2 rounded-full bg-yellow-500 px-2 py-1 text-sm text-white shadow-md">
           <img src={star} alt="star-icon" />
