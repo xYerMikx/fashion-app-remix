@@ -9,7 +9,7 @@
     "start:api": "node ./api/server.cjs",
     "lint": "eslint --ignore-path .gitignore --cache --cache-location ./node_modules/.cache/eslint .",
     "lint:fix": "eslint --fix",
-    "start": "remix-serve ./build/server/index.js",
+    "start": "npm run start:api && remix-serve ./build/server/index.js",
     "typecheck": "tsc",
     "prepare": "husky",
     "prettier": "npx prettier . --write"
