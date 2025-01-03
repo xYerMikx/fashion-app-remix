@@ -30,7 +30,7 @@ export const ProductCardFull = ({
         <img src={image} alt={title} className="size-full object-cover" />
         <div className="absolute right-2 top-2 rounded-full bg-yellow-500 px-2 py-1 text-sm text-white shadow-md">
           <img src={star} alt="star-icon" />
-          {rating.toFixed(2)}
+          {Number(rating).toFixed(2)}
         </div>
       </div>
 
@@ -45,7 +45,7 @@ export const ProductCardFull = ({
           {description}
         </p>
         <p className="mt-4 text-xl font-bold text-gray-800">
-          {currency} {price.toFixed(2)}
+          {currency} {Number(price).toFixed(2)}
         </p>
       </div>
     </div>
