@@ -1,10 +1,12 @@
-import { reviews } from 'constants/reviews'
-import { sleep } from 'utils/sleep'
 
 export const ReviewsService = {
   async getReviews() {
-    await sleep(500)
+    const reviewsResponse = await fetch(`${process.env.API_URL}/reviews`)
 
-    return reviews
+    if (!reviewsResponse.ok) {
+      throw new Error('Failed to fetch products')
+    }
+
+    return reviewsResponse.json()
   },
 }
