@@ -8,6 +8,9 @@ import {
 import type { LinksFunction } from '@remix-run/node'
 
 import './tailwind.css'
+import { ErrorBoundary } from '~/components/error-boundary/ErrorBoundary'
+
+export { ErrorBoundary }
 
 export const links: LinksFunction = () => [
   { rel: 'preconnect', href: 'https://fonts.googleapis.com' },

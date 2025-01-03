@@ -1,6 +1,6 @@
-import dress from '~/assets/images/dress.png'
-import womanOutfit from '~/assets/images/product.png'
-import outfit from '~/assets/images/outfit.png'
+import dress from '/images/dress.png'
+import womanOutfit from '/images/product.png'
+import outfit from '/images/outfit.png'
 import { Product, ProductDto } from 'entities/product'
 
 export const heroProducts: ProductDto[] = [
