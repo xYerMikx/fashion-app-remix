@@ -1,6 +1,4 @@
-import { allProducts } from 'constants/products'
 import { Product } from 'entities/product'
-import { sleep } from 'utils/sleep'
 
 export const ProductsService = {
   async getAllProducts(): Promise<Product[]> {
@@ -25,7 +23,6 @@ export const ProductsService = {
     const products: Product[] = await productsResponse.json()
 
     return products.filter((product) => product[filter] !== value)
-
   },
   async getProductById(id: string) {
     const allProducts = await ProductsService.getAllProducts()
