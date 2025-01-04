@@ -4,7 +4,7 @@ import { Button } from '~/ui/button/Button'
 
 interface ProductsCarouselProps {
   title: string
-  products: Product[]
+  products: Product[] | null
 }
 export const ProductsCarousel = ({
   title,
@@ -16,7 +16,7 @@ export const ProductsCarousel = ({
         {title}
       </h2>
       <ul className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
-        {products.map((product) => (
+        {products?.map((product) => (
           <li key={product.id}>
             <ProductCardFull {...product} />
           </li>
