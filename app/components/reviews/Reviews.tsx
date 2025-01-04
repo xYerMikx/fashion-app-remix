@@ -3,14 +3,14 @@ import { Review as ReviewType } from 'entities/review'
 import { Review } from '~/components/review/Review'
 
 interface ReviewsProps {
-  reviews: ReviewType[]
+  reviews: ReviewType[] | null
 }
 
 export const Reviews = ({ reviews }: ReviewsProps) => {
   const [currentIndex, setCurrentIndex] = useState(0)
 
   const cardsPerView = 3
-  const totalPages = Math.ceil(reviews.length / cardsPerView)
+  const totalPages = Math.ceil(reviews?.length || 1 / cardsPerView)
 
   const handleNext = () => {
     setCurrentIndex((prev) => (prev + 1) % totalPages)
@@ -30,7 +30,7 @@ export const Reviews = ({ reviews }: ReviewsProps) => {
               transform: `translateX(-${currentIndex * 100}%)`,
             }}
           >
-            {reviews.map(({ id, ...review }) => (
+            {reviews?.map(({ id, ...review }) => (
               <Review key={id} {...review} />
             ))}
           </div>
