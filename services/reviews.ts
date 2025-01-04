@@ -1,4 +1,3 @@
-
 export const ReviewsService = {
   async getReviews() {
     const reviewsResponse = await fetch(`${process.env.API_URL}/reviews`)
