@@ -45,6 +45,10 @@
     "vite": "^5.1.0",
     "vite-tsconfig-paths": "^4.2.1"
   },
+  "optionalDependencies": {
+    "@rollup/rollup-linux-x64-musl": "4.9.5", 
+    "@rollup/rollup-linux-x64-gnu": "4.9.5"
+  },
   "lint-staged": {
     "app/**/*.{js,jsx,ts,tsx,json}": [
       "npx prettier . --write",
